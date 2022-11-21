@@ -72,4 +72,12 @@ public class Ticket {
         return calculateDiscount().multiply(BigDecimal.valueOf(userKm));
     }
 
+	@Override
+	public String toString() {
+		return "Km: " + getUserKm()
+		+ "\nAge: " + getUserAge()
+        + "\nPrice: €" + getTicketPrice();
+	}
+	
+
 }
