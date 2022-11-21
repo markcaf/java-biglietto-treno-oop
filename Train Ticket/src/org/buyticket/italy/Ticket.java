@@ -34,7 +34,7 @@ public class Ticket {
 	
 	public void isValidKm(int km) throws Exception{
 		if (km < 0) {
-			throw new Exception("Il numero di Km deve essere positivo");
+			throw new Exception("The number of km must be positive");
 		} else {
 			this.userKm = km;
 		}
@@ -42,7 +42,7 @@ public class Ticket {
 	
 	public void isValidAge(int age) throws Exception{
 		if (age <= 0) {
-			throw new Exception("L'età deve essere superiore a 0");
+			throw new Exception("Age must be greater than 0");
 		}
 	}
 
