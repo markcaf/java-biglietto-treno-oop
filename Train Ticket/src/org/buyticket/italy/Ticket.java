@@ -1,9 +1,15 @@
 package org.buyticket.italy;
 
+import java.math.BigDecimal;
+
 public class Ticket {
 	
 	private int userKm;
 	private int userAge;
+	
+	private static final BigDecimal PRICE_FOR_KM = new BigDecimal(0.21);
+    private static final BigDecimal OVER_65_DISCOUNT = new BigDecimal(0.6);
+    private static final BigDecimal UNDERAGE_DISCOUNT = new BigDecimal(0.8);
 	
 	public Ticket (int userKm, int userAge) throws Exception {
 		isValidKm(userKm);
