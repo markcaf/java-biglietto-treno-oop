@@ -1,6 +1,7 @@
 package org.buyticket.italy;
 
 import java.math.BigDecimal;
+import java.text.Format;
 
 public class Ticket {
 	
@@ -43,6 +44,8 @@ public class Ticket {
 	public void isValidAge(int age) throws Exception{
 		if (age <= 0) {
 			throw new Exception("Age must be greater than 0");
+		} else {
+			this.userAge = age;
 		}
 	}
 
@@ -71,12 +74,17 @@ public class Ticket {
 	public BigDecimal getTicketPrice() {
         return calculateDiscount().multiply(BigDecimal.valueOf(userKm));
     }
+	
+	public String getTicketPriceFormatted() {
+    	double priceToDouble = getTicketPrice().doubleValue();
+        return String.format("%.2f", priceToDouble);
+    }
 
 	@Override
 	public String toString() {
 		return "Km: " + getUserKm()
 		+ "\nAge: " + getUserAge()
-        + "\nPrice: €" + getTicketPrice();
+        + "\nPrice: €" + getTicketPriceFormatted();
 	}
 	
 
