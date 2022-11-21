@@ -46,4 +46,30 @@ public class Ticket {
 		}
 	}
 
+	public static BigDecimal getPriceForKm() {
+		return PRICE_FOR_KM;
+	}
+
+	public static BigDecimal getOver65Discount() {
+		return OVER_65_DISCOUNT;
+	}
+
+	public static BigDecimal getUnderageDiscount() {
+		return UNDERAGE_DISCOUNT;
+	}
+	
+	private BigDecimal calculateDiscount() {
+        if(userAge < 18) {
+            return UNDERAGE_DISCOUNT.multiply(PRICE_FOR_KM);
+        } else if(userAge > 65) {
+            return OVER_65_DISCOUNT.multiply(PRICE_FOR_KM);
+        } else {
+            return PRICE_FOR_KM;
+        }
+    }
+	
+	public BigDecimal getTicketPrice() {
+        return calculateDiscount().multiply(BigDecimal.valueOf(userKm));
+    }
+
 }
