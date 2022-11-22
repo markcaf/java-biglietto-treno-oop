@@ -14,12 +14,15 @@ public class Biglietteria {
 		System.out.print("Enter the age of the passenger: ");
 		int userAge = sc.nextInt();
 		
+		System.out.print("Flexible ticket (true/false): ");
+		boolean flexible = sc.nextBoolean();
+		
 		sc.close();
 		System.out.println("--------------");
 		
 		Ticket userTicket = null;
 		try {
-			userTicket = new Ticket(userKm, userAge);
+			userTicket = new Ticket(userKm, userAge, flexible);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		} finally {
